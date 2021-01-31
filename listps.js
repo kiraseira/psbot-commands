@@ -5,6 +5,7 @@ exports.kirabot_command = {
 		userlevel: 0,
 		aliases: ["pss", "playsounds", "listplaysounds"],
 		pingsender: 1,
+		execution_check: false,
 		cds: {
 				user: 5,
 				channel: 10

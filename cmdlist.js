@@ -5,6 +5,7 @@ exports.kirabot_command = {
 		aliases: ["commands", "cmds"],
 		userlevel: 0,
 		pingsender: 1,
+		execution_check: false,
 		cds: {
 				user: 10,
 				channel: 10

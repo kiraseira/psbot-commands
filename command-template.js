@@ -5,6 +5,8 @@ exports.kirabot_command = {
 		aliases: null,					//array of strings with the aliases of the command
 		userlevel: 0,					//0: anyone can run it 1: needs to be at least trusted user 2: needs to be at least broadcaster 3: operator only
 		pingsender: 1,					//1: text reply from the command will be prefixed by "<calling users name>, " 0: it won't be
+		execution_check: false,			//if true right before starting the command the user is flagged for having a command executing which prevents them
+										//from running other commands before the previous one was finished
 		cds: {
 				user: 5,				//how often a user can call this command (in secs)
 				channel: 10				//how often the command can be used by anyone

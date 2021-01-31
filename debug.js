@@ -5,6 +5,7 @@ exports.kirabot_command = {
 		aliases: null,
 		userlevel: 3,
 		pingsender: 1,
+		execution_check: false,
 		cds: {
 				user: 1,
 				channel: 2
@@ -17,7 +18,7 @@ exports.kirabot_command = {
 					}
 					const startt = new Date();
 					try{
-						dbgret = eval (lparam.substr(lparam.indexOf(" ")+1));
+						dbgret = eval ("(function() {"+lparam.substr(lparam.indexOf(" ")+1)+"})()");
 					}
 					catch(err){
 						resolve(`Error while evaluation expression: ${err}`);
