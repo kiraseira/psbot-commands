@@ -14,16 +14,16 @@ exports.kirabot_command = {
 				return new Promise((resolve, reject) => {
 					const paramlist = lparam.split(" ");
 					if (paramlist.length<2){
-						resolve(`please specify a command name to get help for. You can use ${ksb.c.prefix}commands for a list of commands.`);
+						resolve({resolvedOnSuccess: false, msg: `please specify a command name to get help for. You can use ${ksb.c.prefix}commands for a list of commands.`});
 						return;
 					}
 					const target = ksb.util.getAlias(paramlist[1]);
 					const cmd = ksb.cmds.find(nam => nam.name === target);
 					if(!cmd){
-						resolve(`could not find that command. You can use ${ksb.c.prefix}commands for a list of commands.`);
+						resolve({resolvedOnSuccess: false, msg: `could not find that command. You can use ${ksb.c.prefix}commands for a list of commands.`});
 						return;
 					} else {
-						resolve(cmd.help);
+						resolve({resolvedOnSuccess: true, msg: cmd.help});
 						return;
 					}
 				});

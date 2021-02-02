@@ -16,16 +16,16 @@ exports.kirabot_command = {
 					if(input.length <2){
 						switch(input[0]){
 							case "dank":
-								resolve(`${sender} you're flippin dank FeelsDankMan`);
+								resolve({resolvedOnSuccess: true, msg: `${sender} you're flippin dank FeelsDankMan`});
 								return;
 							case "donk":
-								resolve(`${sender} you're flippin donk FeelsDonkMan`);
+								resolve({resolvedOnSuccess: true, msg: `${sender} you're flippin donk FeelsDonkMan`});
 								return;
 							case "nam":
-								resolve(`${sender} get flippin NaM med`);
+								resolve({resolvedOnSuccess: true, msg: `${sender} get flippin NaM med`});
 								return;
 							case "quack":
-								resolve(`${sender} get flippin quacked DuckerZ`);
+								resolve({resolvedOnSuccess: true, msg: `${sender} get flippin quacked DuckerZ`});
 								return;
 							default:
 								reject("internal command error FeelsDonkMan");
@@ -34,16 +34,16 @@ exports.kirabot_command = {
 					} else {
 						switch(input[0]){
 							case "dank":
-								resolve(`get flippin danked ${input[1]} FeelsDankMan`);
+								resolve({resolvedOnSuccess: true, msg: `get flippin danked ${input[1]} FeelsDankMan`});
 								return;
 							case "donk":
-								resolve(`get flippin donked ${input[1]} FeelsDonkMan`);
+								resolve({resolvedOnSuccess: true, msg: `get flippin donked ${input[1]} FeelsDonkMan`});
 								return;
 							case "nam":
-								resolve(`get flippin NaM med ${input[1]}`);
+								resolve({resolvedOnSuccess: true, msg: `get flippin NaM med ${input[1]}`});
 								return;
 							case "quack":
-								resolve(`get flippin quacked ${input[1]} DuckerZ`);
+								resolve({resolvedOnSuccess: true, msg: `get flippin quacked ${input[1]} DuckerZ`});
 								return;
 							default:
 								reject("internal command error FeelsDonkMan");

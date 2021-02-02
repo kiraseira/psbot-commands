@@ -15,7 +15,12 @@ exports.kirabot_command = {
 				return new Promise((resolve, reject) => {
 					//resolve on success and minor, handled errors like not enough parameters, invalid parameter etc.
 					//reject on serious errors like http error, sql error etc.
-					//both rejection and resolve must return a string!
+					//rejection must be a string, resolve must return a JSON with two elements:
+					//resolvedOnSuccess:	boolean, true if the command complete successfully, false if a command had
+					//						a minor hiccup, like a missing parameter. If false the "failed command" cooldown will be applied
+					//						not the full command cooldown, which is important if the command cd is considerably long.
+					//msg:					string, what to say.
+					//Example {resolvedOnSucces: true, msg: "successfully played the sound." }
 				
 				});
 				}

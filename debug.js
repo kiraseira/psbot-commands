@@ -13,7 +13,7 @@ exports.kirabot_command = {
 		code: function(sender, lparam) {
 				return new Promise((resolve, reject) => {
 					if(lparam.split(" ").length<2){
-						resolve("PowerUpL EntropyWins PowerUpR");
+						resolve({resolvedOnSuccess: true, msg: "PowerUpL EntropyWins PowerUpR"});
 						return;
 					}
 					const startt = new Date();
@@ -21,11 +21,11 @@ exports.kirabot_command = {
 						dbgret = eval ("(function() {"+lparam.substr(lparam.indexOf(" ")+1)+"})()");
 					}
 					catch(err){
-						resolve(`Error while evaluation expression: ${err}`);
+						resolve({resolvedOnSuccess: false, msg: `Error while evaluation expression: ${err}`});
 						return;
 					}
 					const totaltime = new Date()-startt;
-					resolve(`result (in ${totaltime} ms): ${dbgret}`);
+					resolve({resolvedOnSuccess: true, msg: `result (in ${totaltime} ms): ${dbgret}`});
 
 				});
 				}

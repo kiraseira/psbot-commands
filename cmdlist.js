@@ -22,7 +22,7 @@ exports.kirabot_command = {
 						}
 						result += ", ";
 					});
-					resolve(result.substr(0, result.length-2));
+					resolve({resolvedOnSuccess: true, msg: result.substr(0, result.length-2)});
 					return;
 				});
 				}

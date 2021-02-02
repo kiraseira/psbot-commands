@@ -15,7 +15,7 @@ exports.kirabot_command = {
 					ksb.player.stop();
 					ksb.util.logger(3, "Stopping playback on command.");
 					ksb.status = "idle";
-					resolve("Playback stopped.");
+					resolve({resolvedOnSuccess: true, msg: "Playback stopped."});
 				});
 				}
 }

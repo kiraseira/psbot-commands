@@ -12,7 +12,7 @@ exports.kirabot_command = {
 			},
 		code: function(sender, lparam) {
 				return new Promise((resolve, reject) => {
-					resolve(`This is an on-command/channelpoint redemption playsound bot, made by kiraseira in nodejs. Command prefix: ${ksb.c.prefix}`);
+					resolve({resolvedOnSuccess: true, msg: `This is an on-command/channelpoint redemption playsound bot, made by kiraseira in nodejs. Command prefix: ${ksb.c.prefix}`});
 				});
 				}
 }

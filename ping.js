@@ -13,7 +13,7 @@ exports.kirabot_command = {
 		code: function(sender, lparam) {
 				return new Promise((resolve, reject) => {
 					let data = ksb.db.syncSelect(`SELECT COUNT(id) AS cid FROM playsounds WHERE enabled='1';`);
-					resolve (`Playsound bot ready to roll. Command prefix is ${ksb.c.prefix} , memory usage: ${ksb.util.memusage()}, enabled playsounds: ${data[0].cid}`);
+					resolve ({resolvedOnSuccess: true, msg: `Playsound bot ready to roll. Command prefix is ${ksb.c.prefix} , memory usage: ${ksb.util.memusage()}, enabled playsounds: ${data[0].cid}`});
 				});
 				}
 }

@@ -14,15 +14,15 @@ exports.kirabot_command = {
 				return new Promise((resolve, reject) => {
 					const cparam = lparam.split(" ");
 					if (cparam.length<2){
-						reject("you must specify a playsound name to play");
+						resolve({resolvedOnSuccess: false, msg: "you must specify a playsound name to play"});
 						return;
 					}
 					if (ksb.status != "idle"){
-						reject("a sound is already playing!");
+						resolve({resolvedOnSuccess: false, msg: "a sound is already playing, wait until it finishes."});
 						return;
 					}
 					ksb.util.playsound(cparam[1]).then((d) => {
-						resolve(d);
+						resolve({resolvedOnSuccess: true, msg: d});
 						return;
 					}).catch((err) => { reject(err); });	
 				});
