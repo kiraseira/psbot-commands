@@ -13,7 +13,15 @@ exports.kirabot_command = {
 		code: function(sender, lparam) {
 				return new Promise((resolve, reject) => {
 					let data = ksb.db.syncSelect(`SELECT COUNT(id) AS cid FROM playsounds WHERE enabled='1';`);
-					resolve ({resolvedOnSuccess: true, msg: `Playsound bot ready to roll. Command prefix is ${ksb.c.prefix} , memory usage: ${ksb.util.memusage()}, enabled playsounds: ${data[0].cid}`});
+					let pingstart = new Date(), pingms;
+					ksb.chatclient.ping().then(()=> {
+						pingms = String(new Date()-pingstart)+"ms";
+					}).catch((err) => {
+						ksb.util.logger(2, `<ping cmd> Error while trying to ping TMI: ${err}`);
+						pingms = "(unknown)";
+					}).finally(() => {
+						resolve ({resolvedOnSuccess: true, msg: `Playsound bot ready to roll. Command prefix is ${ksb.c.prefix} , memory usage: ${ksb.util.memusage()}, enabled playsounds: ${data[0].cid}, latency to TMI:  ${pingms}`});
+					});
 				});
 				}
 }
