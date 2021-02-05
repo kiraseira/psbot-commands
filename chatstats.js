@@ -7,8 +7,8 @@ exports.kirabot_command = {
 		pingsender: 1,
 		execution_check: true,
 		cds: {
-				user: 40,				//how often a user can call this command (in secs)
-				channel: 30 				//how often the command can be used by anyone
+				user: 20,				//how often a user can call this command (in secs)
+				channel: 15 				//how often the command can be used by anyone
 			},
 		code: function(sender, lparam) {
 				return new Promise((resolve, reject) => {
