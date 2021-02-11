@@ -1,5 +1,3 @@
-const hastebin_url = "https://kirahaste.glitch.me/";
-
 exports.kirabot_command = {
 		name: "genpslist",
 		desc: "Playsound list in hastebin wow!",
@@ -14,8 +12,12 @@ exports.kirabot_command = {
 			},
 		code: function(sender, lparam) {
 				return new Promise((resolve, reject) => {
+					if(!ksb.c.hastebinURL || ksb.c.hastebinURL.length===0){
+						reject("hastebin URL not set in config");
+						return;
+					}
 					ksb.haste.createPaste(generateList(),
-										{raw: true, contentType: 'text/plain', server: hastebin_url},
+										{raw: true, contentType: 'text/plain', server: ksb.c.hastebinURL},
 										/* options for the 'got' module here */ {}).then((data)=>{
 											let psl = ksb.db.syncSelect("SELECT * FROM data WHERE name='playsound-list';");
 											if(psl.length === 0){
