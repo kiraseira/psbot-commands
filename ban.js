@@ -1,6 +1,6 @@
 exports.kirabot_command = {
 		name: "ban",
-		desc: "bans a user from executing commands and ",
+		desc: "bans a user from executing commands and playing sounds with point redemptions",
 		help: "ban: bans a user from using the bots command and sounds. Text entered after the username (if any) is saved as reason for the ban. unban: removes an existing ban.",
 		aliases: ["unban"],
 		userlevel: 2,
